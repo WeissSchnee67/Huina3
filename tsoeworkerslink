@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Защищённый сайт</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box {
+      background: white;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 0.5em;
+      margin-top: 1em;
+    }
+
+    #content {
+      display: none;
+    }
+
+    #error {
+      color: red;
+      display: none;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" id="login-box">
+    <h2>Введите пароль</h2>
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="checkPassword()">Войти</button>
+    <p id="error">Неверный пароль!</p>
+  </div>
+
+  <div class="box" id="content">
+    <h1>Добро пожаловать!</h1>
+    <p>Вы вошли на защищённый сайт.</p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      const error = document.getElementById("error");
+      if (password === "83662") {
+        document.getElementById("login-box").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
